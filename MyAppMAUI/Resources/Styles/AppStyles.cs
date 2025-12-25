@@ -111,14 +111,12 @@ namespace MyAppMAUI
                     .TextColor(e => e.OnLight(AppColors.Gray300).OnDark(AppColors.Gray600)))
             },              
 
-            // "Frame"
 
-            new Style<Frame>(e => e
-                .HasShadow(false)
-                .BorderColor(e => e.OnLight(AppColors.Gray200).OnDark(AppColors.Gray950))
-                .CornerRadius(8)),
+            new Style<Border>(e => e
+                .Stroke(AppColors.Gray200)
+                .StrokeShape(new RoundRectangle().CornerRadius(8))
+                .StrokeThickness(1)),
         
-            // "ImageButton"
 
             new Style<ImageButton>(e => e
                 .Opacity(1.0)

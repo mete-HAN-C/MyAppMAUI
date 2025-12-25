@@ -1,15 +1,16 @@
-﻿using MyAppMAUI.Pages;
+﻿using FmgLib.MauiMarkup;
 
-namespace MyAppMAUI
+namespace MyMAUI;
+
+public class App : Application
 {
-    public partial class App : Application
+    public App()
     {
-        public App()
-        {
-            this
-            .Resources(AppStyles.Default)
-            // Sayfayı NavigationPage içine alıyoruz ki sayfalar arası geçiş yapabilsin
-            .MainPage(new NavigationPage(new LoginPage()));
-        }
+        this.Resources(new ResourceDictionary());
+    }
+
+    protected override Window CreateWindow(IActivationState? activationState)
+    {
+        return new Window(new AppShell());
     }
 }
