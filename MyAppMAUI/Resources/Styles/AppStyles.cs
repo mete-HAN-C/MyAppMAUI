@@ -109,14 +109,14 @@ namespace MyAppMAUI
                 new VisualState<Entry>(VisualStates.VisualElement.Normal),
                 new VisualState<Entry>(VisualStates.VisualElement.Disabled, e => e
                     .TextColor(e => e.OnLight(AppColors.Gray300).OnDark(AppColors.Gray600)))
-            },              
+            },
 
 
             new Style<Border>(e => e
                 .Stroke(AppColors.Gray200)
                 .StrokeShape(new RoundRectangle().CornerRadius(8))
                 .StrokeThickness(1)),
-        
+
 
             new Style<ImageButton>(e => e
                 .Opacity(1.0)

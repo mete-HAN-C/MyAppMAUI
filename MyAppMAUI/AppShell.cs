@@ -35,4 +35,3 @@ public class AppShell : Shell
         Routing.RegisterRoute(Routes.Reset, typeof(ResetPasswordPage));
     }
 }
-
