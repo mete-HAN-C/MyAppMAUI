@@ -66,6 +66,7 @@ public class LoginPage : ContentPage // ContentPage bir ekran anlamına gelir (G
                             .BorderWidth(1) // İnce kenarlık
                             .HeightRequest(55) // Buton yüksekliği
                             .Margin(new Thickness(0, 25, 0, 0)), // Üstten 25px extra boşluk
+                            
 
                         // KAYDOLUN KISMI
                         new HorizontalStackLayout() // Elemanları yan yana dizer.

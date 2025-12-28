@@ -30,6 +30,7 @@
                             .FontAttributes(FontAttributes.Bold) // Kalın yazı.
                             .CenterHorizontal() // Yazıyı yatayda ortalar.
                             .Margin(new Thickness(0, 0, 0, 15)), // Altına 15 px extra boşluk ekler.
+                            
 
                         // GİRİŞ ALANLARI
                         CreateInputGroup("Ad", false), // CreateInputGroup metodu AD için tetiklendi.
@@ -64,7 +65,14 @@
                             .BorderColor(Colors.White) // Çerçeve rengi beyaz.
                             .BorderWidth(1) // Çerçeve kalınlığı ince.
                             .HeightRequest(50) // Buton yüksekliği 50.
-                            .Margin(new Thickness(0, 10, 0, 0)), // Üstten 10px extra boşluk
+                            .Margin(new Thickness(0, 10, 0, 0)) // Üstten 10px extra boşluk
+                            .GestureRecognizers(new TapGestureRecognizer()
+
+                            {
+
+                                Command = new Command(async () => await Navigation.PushAsync(new CreateProfilePage()))
+
+                            }),
 
                         // ALT METİN
                         new HorizontalStackLayout() // Elemanları yan yana dizer.
