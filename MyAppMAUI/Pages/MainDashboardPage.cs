@@ -56,6 +56,7 @@ public class MainDashboardPage : ContentPage
                                 new Label()
                                     .Text("⚙️") // Ayarlar iconu
                                     .FontSize(22)
+                                    
                             }
                         }.Column(1) // Bildirim ve ayarlar iconu sağ kolona yerleşti.
                     }
@@ -122,7 +123,6 @@ public class MainDashboardPage : ContentPage
                             {
                                 CreateActionButton("💰", "harcama ekle"),
                                 CreateActionButton("💧", "Su ekle"),
-                                CreateActionButton("💊", "İlaç ekle")
                             }
                         }.Assign(out _actionButtonsPopup) // Menü (HorizontalStackLayout) artık _actionButtonsPopup değişkenine bağlandı
                     }
@@ -147,7 +147,11 @@ public class MainDashboardPage : ContentPage
                             Children =
                             {
                                 CreateNavTab("🏠", "Ana Sayfa", 0, true), // Bir alt navigasyon sekmesi oluşturur
-                                CreateNavTab("📅", "Takvim", 1),          // İkon - Sekme ismi - Sütun yeri - Sekme aktif mi?
+                                CreateNavTab("📅", "Takvim", 1)     // İkon - Sekme ismi - Sütun yeri - Sekme aktif mi?
+                                .GestureRecognizers(new TapGestureRecognizer() // Takvim ikonuna basınca takvim ekranı açılır.
+                                {
+                                    Command = new Command(async () => await Navigation.PushAsync(new CalendarMainPage()))
+                                }),
                                 CreateNavTab("💰", "Bütçe", 2),
                                 CreateNavTab("❤️", "Sağlık", 3)
                             }
@@ -192,8 +196,8 @@ public class MainDashboardPage : ContentPage
 
                 new Label()
                     .Text(icon) // İconlar (ev - takvim vb)
-                    .TextColor(isActive ? Colors.CornflowerBlue : Colors.White) // Aktif ikon mavi olmayan icon beyaz
-                    .FontSize(20).CenterHorizontal(),
+                    .FontSize(20)
+                    .CenterHorizontal(),
 
                 new Label()
                     .Text(text) // Sekmenin adı (ana sayfa - takvim vb)
